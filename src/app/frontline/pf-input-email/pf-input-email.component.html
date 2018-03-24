@@ -1,0 +1,46 @@
+<label class="control-label" for="">{{label}}
+  <span class="star">*</span>
+</label>
+<div class="input-group">
+  <input 
+      type="email" 
+      id="{{id}}" 
+      name="{{name}}" 
+      #nome="ngModel"
+      [(ngModel)]="value"	
+      placeholder="{{placeholder}}" 
+      attr.maxlength={{maxlength}} 
+      minlength="{{minlength}}"
+      class="form-control"
+      disabled="{{disabled || false}}"
+      required="{{required}}"
+      pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+      click="clique($event)"
+      blur="blur($event)"
+      change="change($event)"
+      paste="paste($event)"
+>
+</div>
+
+<div [hidden]="nome.pristine">
+  <div *ngIf="nome?.errors?.required">
+    <small class="text-danger">
+      Campo obrigatorio.
+    </small>
+    <br>
+  </div>
+
+    <div *ngIf="nome?.errors?.minlength">
+      <small  class="text-danger">
+          Tamanho minimo de {{minlength}} caracteres.
+      </small> 
+      <br>
+    </div>
+    
+    <div *ngIf="nome?.errors?.pattern">
+    <small class="text-danger">
+        O campo deve ser um endereço de e-mail valido.
+    </small>
+    <br>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<label class="control-label" for="">{{ label }}
+  <span class="star">*</span>
+</label>
+
+<div>
+    <select [(ngModel)]="itemSelecionado">
+        <option *ngFor="let item of items" 
+        [value]="item.id" 
+        click="clique($event)"
+        blur="blur($event)"
+        change="change($event)"
+        paste="paste($event)">{{ item.name }}</option>
+    </select>
+</div>
+
+Item selecionado: {{ itemSelecionado }}

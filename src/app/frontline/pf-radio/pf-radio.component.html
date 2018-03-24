@@ -1,0 +1,7 @@
+<div class="form-check-inline" *ngFor="let item of items">
+    <label class="form-check-label">
+        <input class="form-check-input" type="radio" [name]="item.name" [value]="item.value" [(ngModel)]="value"> Valor do INput
+    </label>
+</div>
+
+<!-- Falta o Inline ou não form-check-inline ou form-check -->

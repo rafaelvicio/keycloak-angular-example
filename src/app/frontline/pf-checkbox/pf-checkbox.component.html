@@ -1,0 +1,13 @@
+<label class="form-check-label">
+    <input type="checkbox" 
+    name="{{name}}" 
+    [(ngModel)]="value" 
+    click="clique($event)"
+    blur="blur($event)"
+    change="change($event)"
+    paste="paste($event)"
+    class="form-check-input">
+    Valor do meu Input
+</label>
+
+{{value}}

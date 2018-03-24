@@ -1,0 +1,19 @@
+<div class="form-group row">
+
+  <app-pf-label label="{{ label }}">
+  </app-pf-label>
+
+  <div class="col-sm-10">
+
+      <input type="number" 
+      id="{{ name }}" 
+      name="{{ name}}" 
+      placeholder="{{ placeholder }}"
+      class="form-control"
+      click="clique($event)"
+      blur="blur($event)"
+      change="change($event)"
+      paste="paste($event)">
+
+  </div>
+</div>

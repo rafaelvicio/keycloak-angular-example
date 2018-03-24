@@ -1,0 +1,42 @@
+<label class="control-label" for="">CPF:
+  <span class="star">*</span>
+</label>
+
+<div [ngClass]="!nome.pristine && nome.valid ? 'form-group has-error' : 'form-group'">
+  <input 
+      type="text" 
+      id="{{id}}" 
+      name="{{name}}" 
+      #nome="ngModel"
+      [(ngModel)]="value"
+      appPfMaskCpf="999.999.999-99"
+      placeholder="{{placeholder}}" 
+      class="form-control"
+      minlength="{{minlength}}"
+      disabled="{{disabled || false}}"
+      required="{{required || false}}"
+>
+</div>
+
+<div *ngIf="flagCpfInvalido && value.length > 0">
+    <small class="text-danger">
+      CPF inválido.
+    </small>
+    <br>
+</div>
+
+<div [hidden]="nome.pristine">
+    <div *ngIf="nome?.errors?.required">
+      <small class="text-danger">
+        Campo obrigatório.
+      </small>
+      <br>
+    </div>
+  
+    <div *ngIf="nome?.errors?.minlength">
+      <small  class="text-danger">
+          Tamanho mínimo de {{minlength}} caracteres.
+      </small> 
+      <br>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<label class="control-label" for="">CNPJ:
+  <span class="star">*</span>
+</label>
+
+<div [ngClass]="!nome.pristine && nome.valid ? 'form-group has-error' : 'form-group'">
+  <input 
+      type="text" 
+      id="{{id}}" 
+      name="{{name}}" 
+      #nome="ngModel"
+      [(ngModel)]="value"
+      placeholder="{{placeholder}}" 
+      class="form-control"
+      minlength="{{minlength}}"
+      disabled="{{disabled || false}}"
+      required="{{required || false}}"
+      pfMaskCnpj="99.999.999/9999-99"
+>
+</div>
+
+<div *ngIf="flagCnpjInvalido && value.length > 0">
+    <small class="text-danger">
+      CNPJ Inválido.
+    </small>
+    <br>
+</div>
+
+<div [hidden]="nome.pristine">
+    <div *ngIf="nome?.errors?.required">
+      <small class="text-danger">
+        Campo obrigatório.
+      </small>
+      <br>
+    </div>
+  
+    <div *ngIf="nome?.errors?.minlength">
+      <small  class="text-danger">
+          Tamanho mínimo de {{minlength}} caracteres.
+      </small> 
+      <br>
+    </div>
+</div>
